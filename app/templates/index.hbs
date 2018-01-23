@@ -1,9 +1,14 @@
-{{#each model as |posting|}}
-  <li>
-    <h4>{{posting.title}}</h4>
-    <small>{{posting.pay}}</small> 
-    <p>{{posting.description}}</p>
-    <small>{{posting.interested.length}} dinos are interested in this job</small>
-  </li>
-{{/each}}
-{{outlet}}
+{{dino-header}}
+<main>
+  <section>
+    {{#dino-listings}}
+      {{#each model as |posting|}}
+        {{dino-listing title=posting.title pay=posting.pay description=posting.description interested=posting.interested}}
+      {{/each}}
+    {{/dino-listings}}
+  </section>
+  <aside id='side-bar'>
+    {{dino-add}}
+  </aside>
+</main>
+{{dino-footer}}
